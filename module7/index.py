@@ -1,5 +1,7 @@
 from traceback import print_tb
 
+from pyexpat.errors import messages
+
 age = 17
 
 age_as_str =str(age)
@@ -25,3 +27,43 @@ y = 9.5
 
 result = x+y
 print(result, "type of", type(result))
+
+age = 22
+
+message = "im" +str(age) + "years old"
+print(message)
+
+
+
+a = 5
+b = "3"
+
+result1 = a * int(b)
+print(result1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
