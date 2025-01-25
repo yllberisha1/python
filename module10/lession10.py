@@ -1,46 +1,46 @@
-from abc import ABC, abstractmethod
-
-
-class shape(ABC):
-    @abstractmethod
-    def area(self):
-        pass
-
-
-class Circle(shape):
-    def init(self, radius):
-        self.radius = radius
-
-    def area(self):
-        return 3.14 * self.radius * self.radius
-
-
-class Square(shape):
-    def init(self, length):
-        self.length = length
-
-    def area(self):
-        return self.length * self.length
-
-
-circle = Circle(7)
-square = Square(10)
-
-print(circle.area())
-print(square.area())
-
-
-class Printable(ABC): 1 usage
-@abstractmethod  def print_info(self):
-pass
-class Book(Printable): 1 usage  def -_init__(self, title, author):
-self. title = title
-self.author = author
-def print_info(self): 1 usage
-print(f"Book: (self.title} by (self.author]")
-book = Book( title: "Fugia e se tashmes", author: "Ismail Kadare")
-book. print_info(()
-
+# from abc import ABC, abstractmethod
+#
+#
+# class shape(ABC):
+#     @abstractmethod
+#     def area(self):
+#         pass
+#
+#
+# class Circle(shape):
+#     def init(self, radius):
+#         self.radius = radius
+#
+#     def area(self):
+#         return 3.14 * self.radius * self.radius
+#
+#
+# class Square(shape):
+#     def init(self, length):
+#         self.length = length
+#
+#     def area(self):
+#         return self.length * self.length
+#
+#
+# circle = Circle(7)
+# square = Square(10)
+#
+# print(circle.area())
+# print(square.area())
+#
+#
+# class Printable(ABC): 1 usage
+# @abstractmethod  def print_info(self):
+# pass
+# class Book(Printable): 1 usage  def -_init__(self, title, author):
+# self. title = title
+# self.author = author
+# def print_info(self): 1 usage
+# print(f"Book: (self.title} by (self.author]")
+# book = Book( title: "Fugia e se tashmes", author: "Ismail Kadare")
+# book. print_info(()
+#
 
 
 
