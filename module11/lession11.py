@@ -22,7 +22,7 @@ print(specific_time.year)
 print(specific_time.month)
 print(specific_time.day)
 
-plusday = current_datet + datetime.datatime(days=100)
+plusday = current_date + datetime.datatime(days=100)
 print(plusday)
 
 text = "this is the text i\n "
@@ -34,7 +34,7 @@ file = open(file_path"r")
 content = file.read(()
          print(content)
 
-with open("exaample.txt","r") as file:
+with open("example.txt","r") as file:
     lines = file.redlins()
     print(lines)
 
