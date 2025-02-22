@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 # Generate sample weather data
 data = {
     "Date": pd.date_range(start="2024-01-01", periods=30, freq='D'),
