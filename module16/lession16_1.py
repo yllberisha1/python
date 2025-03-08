@@ -1,28 +1,70 @@
 import streamlit as st
 
-def calculate (num1, num2, operation):
-   if operation == "Addition":
-       result = num1 + num2
-   elif operation == "Subtraction":
-       result = num1 - num2
-   elif operation == "Multiply":
-       result = num1 * num2
-   elif operation == "Division":
-       try:
-           result = num1 / num2
-       except ZeroDivisionError:
-           result = "Cannot divide by zero"
-   return result
 
+# Function to calculate BMI
+def calculate_bmi(weight, height):
+    # BMI formula: BMI = weight (kg) / (height (m) ^ 2)
+    height_m = height / 100  # Convert height from cm to meters
+    bmi = weight / (height_m ** 2)
+    return bmi
+
+
+# Main function to create the Streamlit app
 def main():
-    st.title("Simple calculator")
-    num1 = st.number_input("Enter the first number", step=1)
-    num2 = st.number_input("Enter the second number",step=2)
-    operation = st.radio("Select operation", ['Addition', 'Subtraction', 'Multiply', 'Division'])
+    # Streamlit input widgets for user data
+    st.title("Personal Info and BMI Calculator")
 
-    result = calculate(num1, num2, operation)
+    # Initialize session state to store user data
+    if 'users' not in st.session_state:
+        st.session_state['users'] = []
 
-    st.write(f"Result of the {operation} of {num1} and {num2} is {result}")
+    # Input fields
+    name = st.text_input("Enter your first name:")
+    surname = st.text_input("Enter your surname:")
+    age = st.number_input("Enter your age:", min_value=1, max_value=150, step=1)
+    height = st.number_input("Enter your height in cm:", min_value=50, max_value=300, step=1)
+    weight = st.number_input("Enter your weight in kg:", min_value=10, max_value=300, step=1)
+
+    # When the user clicks the 'Add New User' button
+    if st.button("Add New User"):
+        if name and surname and age and height and weight:
+            # Calculate BMI
+            bmi = calculate_bmi(weight, height)
+
+            # Add user data to session state
+            st.session_state['users'].append({
+                'name': name,
+                'surname': surname,
+                'age': age,
+                'height': height,
+                'weight': weight,
+                'bmi': bmi
+            })
+
+            # Display confirmation message
+            st.success(f"User {name} {surname} added successfully!")
+
+    # Show list of users added and their details
+    if st.session_state['users']:
+        st.write("### Users Added:")
+        for user in st.session_state['users']:
+            st.write(f"Name: {user['name']} {user['surname']}")
+            st.write(f"Age: {user['age']} years")
+            st.write(f"Height: {user['height']} cm")
+            st.write(f"Weight: {user['weight']} kg")
+            st.write(f"BMI: {user['bmi']:.2f}")
+
+            # BMI classification
+            if user['bmi'] < 18.5:
+                st.write("You are underweight.")
+            elif 18.5 <= user['bmi'] < 24.9:
+                st.write("You have a normal weight.")
+            elif 25 <= user['bmi'] < 29.9:
+                st.write("You are overweight.")
+            else:
+                st.write("You are obese.")
+            st.write("---")
+
 
 if __name__ == "__main__":
     main()
