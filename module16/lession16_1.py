@@ -1,4 +1,4 @@
-import streamlit as st
+
 
 def calculate (num1, num2, operation):
    if operation == "Addition":
@@ -7,8 +7,7 @@ def calculate (num1, num2, operation):
        result = num1 - num2
    elif operation == "Multiply":
        result = num1 * num2
-   elif operation == "Division":
-       try:
+   elif operation == "Division"
            result = num1 / num2
        except ZeroDivisionError:
            result = "Cannot divide by zero"
