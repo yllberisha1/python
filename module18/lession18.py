@@ -9,6 +9,22 @@ book_df = pd.read_csv('module18/bestsellers.csv')
 st.title('Bestselling Book Analysis')
 st.write('This app analyzes the Amazon top-selling books from 2009 to 2022.')
 
+st.sidebar.header("Add New Book Data")
+
+# Create the form in the sidebar
+with st.sidebar.form("book_form"):
+    new_name = st.text_input("Book Name")
+    new_author = st.text_input("Author Name")
+    new_user_rating = st.slider("User Rating", 0.5, 5.0, 0.0, 0.1)
+    new_review = st.number_input('Review', min_value=0, step=1)
+    new_price = st.number_input('Price', min_value=0, step=1)
+    new_year = st.number_input('Year', min_value=2009, max_value=2022, step=1)
+    new_Genre = st.selectbox("Genre", book_df['Genre'].unique())
+    submit_button = st.from_submit_button(label="Add Book")
+
+
+
+
 # Summary statistics section
 st.subheader("Summary Statistics")
 total_books = book_df.shape[0]
