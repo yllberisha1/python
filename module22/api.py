@@ -27,7 +27,7 @@ class PersonResponse(BaseModel):
 async def create_person(person: Person):
     return{"message:" f"Person{person.name} created with age {person.age}"}
 
-# Fix the route function
+
 @app.post("/create_person/", response_model=PersonResponse)
 async def create_person(person: Person):
     return {"message": f"Person {person.name} created with age {person.age}"}
