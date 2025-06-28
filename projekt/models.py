@@ -9,4 +9,4 @@ class Project(BaseModel):
     title: str
     description: Optional[str] = None
     language: Optional[List[str]] = []
-    lead_developer: Developer
+    lead_developer: Developer  # <-- lowercase name
