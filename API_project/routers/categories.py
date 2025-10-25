@@ -1,8 +1,8 @@
 import sqlite3
 from typing import List
 from fastapi import APIRouter, HTTPException, status
-from ..models.category import Category, CategoryCreate
-from ..database import get_db_connection
+from models.category import Category, CategoryCreate
+from database import get_db_connection
 
 router = APIRouter()
 
