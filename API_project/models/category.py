@@ -8,7 +8,7 @@ class CategoryCreate(CategoryBase):
 
 class CategoryResponse(BaseModel):
     id: int
-    name:str
+    name: str
 
 class Category(CategoryBase):
     id: int
